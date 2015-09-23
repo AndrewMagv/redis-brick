@@ -9,8 +9,8 @@ case "$1" in
         ;;
     sentinel)
         shift 1
-	    chown -R redis .
-        exec gosu redis redis-sentinel sentinel.conf $@
+	    chown -R redis /var/local/etc/redis
+        exec gosu redis redis-sentinel /var/local/etc/redis/sentinel.conf $@
         ;;
     *)
         exec "$@"
